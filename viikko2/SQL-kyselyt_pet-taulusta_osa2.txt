@@ -1,0 +1,77 @@
+
+a)
+
+mysql> SELECT DISTINCT owner FROM pet;
++--------+
+| owner  |
++--------+
+| Harold |
+| Gwen   |
+| Benny  |
+| Diane  |
++--------+
+4 rows in set (0.01 sec)
+
+b)
+
+mysql> SELECT name FROM pet ORDER BY name;
++----------+
+| name     |
++----------+
+| Bowser   |
+| Buffy    |
+| Chirpy   |
+| Claws    |
+| Fang     |
+| Fluffy   |
+| Slim     |
+| Whistler |
++----------+
+8 rows in set (0.01 sec)
+
+c)
+
+mysql> SELECT name FROM pet WHERE death IS NULL;
++----------+
+| name     |
++----------+
+| Fluffy   |
+| Claws    |
+| Buffy    |
+| Fang     |
+| Whistler |
+| Slim     |
++----------+
+6 rows in set (0.00 sec)
+
+d)
+
+mysql> SELECT DISTINCT owner FROM pet WHERE owner LIKE 'H%';
++--------+
+| owner  |
++--------+
+| Harold |
++--------+
+1 row in set (0.00 sec)
+
+e)
+
+mysql> SELECT name FROM pet WHERE name LIKE '%ff%';
++--------+
+| name   |
++--------+
+| Fluffy |
+| Buffy  |
++--------+
+2 rows in set (0.00 sec)
+
+f)
+
+mysql> SELECT name FROM pet WHERE name LIKE '____';
++------+
+| name |
++------+
+| Fang |
+| Slim |
++------+
+2 rows in set (0.00 sec)
