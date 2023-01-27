@@ -1,0 +1,26 @@
+a)
+
+mysql> Select last_name FROM employees ORDER BY last_name LIMIT 10;
+
+b)
+
+mysql> Select last_name, first_name FROM employees ORDER BY last_name, first_name LIMIT 10;
+
+c)
+
+mysql> SELECT hire_date FROM employees ORDER BY hire_date DESC LIMIT 5;
+
+d)
+
+mysql> SELECT first_name, last_name, salary FROM employees JOIN salaries
+-> ON employees.emp_no = salaries.emp_no ORDER BY salary DESC LIMIT 1;
+
+e)
+
+mysql> SELECT first_name, last_name, salary FROM employees JOIN salaries 
+-> ON employees.emp_no = salaries.emp_no ORDER BY salary ASC LIMIT 1;
+
+f)
+
+mysql> SELECT last_name, first_name, MAX(salary) FROM employees JOIN salaries 
+-> ON employees.emp_no = salaries.emp_no WHERE salary >='150000' GROUP BY last_name, first_name;
