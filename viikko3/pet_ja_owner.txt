@@ -1,0 +1,19 @@
+mysql> CREATE TABLE owner
+    -> (
+    -> first_name varchar(255),
+    -> last_name varchar(255),
+    -> address varchar(255),
+    -> ownerID int PRIMARY KEY AUTO_INCREMENT
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> show tables
+    -> ;
++----------------+
+| Tables_in_mydb |
++----------------+
+| owner          |
+| pet            |
++----------------+
+2 rows in set (0.00 sec)
+
