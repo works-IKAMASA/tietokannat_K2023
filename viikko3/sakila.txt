@@ -1,0 +1,5 @@
+a)
+
+mysql> select name FROM language ORDER BY name ASC;
+
+b)
