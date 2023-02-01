@@ -37,3 +37,4 @@ mysql> SELECT first_name, last_name, dept_name FROM departments JOIN dept_emp ON
 
 i)
 
+mysql> SELECT AVG(salary), dept_name FROM salaries JOIN employees ON salaries.emp_no=employees.emp_no JOIN dept_emp ON employees.emp_no=dept_emp.emp_no JOIN departments ON dept_emp.dept_no=departments.dept_no WHERE dept_name='Marketing' OR dept_name='Sales' GROUP BY dept_name;
