@@ -31,3 +31,9 @@ mysql> SELECT dept_name, COUNT(*) AS Workers FROM departments JOIN dept_emp
 -> ON departments.dept_no=dept_emp.dept_no JOIN employees ON employees.emp_no=dept_emp.emp_no
 -> WHERE dept_name='Marketing' OR dept_name='Sales' GROUP BY dept_name;
 
+h)
+
+mysql> SELECT first_name, last_name, dept_name FROM departments JOIN dept_emp ON departments.dept_no=dept_emp.dept_no JOIN employees ON employees.emp_no=dept_emp.emp_no join titles on employees.emp_no=titles.emp_no where title='Manager';
+
+i)
+
