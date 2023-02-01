@@ -3,3 +3,30 @@ a)
 mysql> select name FROM language ORDER BY name ASC;
 
 b)
+
+mysql> select first_name,last_name,title FROM film JOIN film_actor ON film.film_id=film_actor.film_id JOIN actor ON actor.actor_id=film_actor.actor_id WHERE last_name LIKE 'Temple';
+
+c)
+
+mysql> SELECT first_name, last_name, title FROM film JOIN film_actor ON film.film_id=film_actor.film_id JOIN actor on actor.actor_id=film_actor.actor_id WHERE title LIKE 'Ghost Groundhog';
+
+d)
+
+mysql> SELECT COUNT(*) FROM film JOIN film_category ON film.film_id=film_category.film_id JOIN category ON film_category.category_id=category.category_id WHERE name LIKE 'Horror';
+
+e)
+
+mysql> Select title AS Horror_films FROM film JOIN film_category ON film.film_id=film_category.film_id JOIN category ON film_category.category_id=category.category_id WHERE name LIKE 'Horror';
++-----------------------------+
+| Horror_films                |
++-----------------------------+
+| ACE GOLDFINGER              |
+| AFFAIR PREJUDICE            |
+| AIRPORT POLLOCK             |
+| ALABAMA DEVIL               |
+....
+..
+| YENTL IDAHO                 |
+| ZHIVAGO CORE                |
++-----------------------------+
+56 rows in set (0.01 sec)
