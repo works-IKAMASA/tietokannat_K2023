@@ -1,0 +1,40 @@
+mysql> select * FROM Opintojakso;
++---------------+---------------------------+----------+---------+
+| idOpintojakso | Nimi                      | Koodi    | Laajuus |
++---------------+---------------------------+----------+---------+
+|             1 | Olio-ohjelmointi          | YNG22229 |       5 |
+|             2 | Tietokannat ja rajapinnat | YNG22230 |       5 |
+|             3 | Engineering english       | YNG22231 |       3 |
+|             4 | Matematiikka              | YNG22236 |       3 |
+|             5 | Fysiikka                  | YNG22237 |       3 |
++---------------+---------------------------+----------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select * FROM opiskelija;
++--------------+---------+----------+------------------+--------------+
+| idOpiskelija | Etunimi | Sukunimi | Opiskelijanumero | Luokkatunnus |
++--------------+---------+----------+------------------+--------------+
+|            1 | Aku     | Ankkak   | 1313             | TVT22SPL     |
+|            3 | Hessu   | Hoopo    | 2560             | TVT22SPL     |
+|            4 | Sakari  | Sikari   | 3630             | TVT22SPL     |
+|            5 | Mikki   | Hiiri    | 1111             | TVT22SPL     |
+|            6 | Roope   | Ankka    | 1899             | TVT22SPL     |
+|            7 | Mimmi   | Matami   | 5501             | TVT22SPL     |
++--------------+---------+----------+------------------+--------------+
+6 rows in set (0.00 sec)
+
+mysql> select etunimi, sukunimi, arvosana, paivays, nimi from arviointi
+JOIN opintojakso on arviointi.idOpintojakso = opintojakso.idOpintojakso
+JOIN opiskelija on arviointi.idOpiskelija = opiskelija.idOpiskelija;
++---------+----------+----------+------------+---------------------------+
+| etunimi | sukunimi | arvosana | paivays    | nimi                      |
++---------+----------+----------+------------+---------------------------+
+| Aku     | Ankkak   |        1 | 2023-01-23 | Olio-ohjelmointi          |
+| Aku     | Ankkak   |        5 | 2023-01-23 | Tietokannat ja rajapinnat |
+| Aku     | Ankkak   |        3 | 2023-02-08 | Tietokannat ja rajapinnat |
+| Hessu   | Hoopo    |        2 | 2023-02-08 | Engineering english       |
+| Sakari  | Sikari   |        4 | 2023-02-08 | Engineering english       |
+| Mimmi   | Matami   |        2 | 2023-02-08 | Olio-ohjelmointi          |
+| Roope   | Ankka    |        5 | 2023-02-08 | Olio-ohjelmointi          |
++---------+----------+----------+------------+---------------------------+
+7 rows in set (0.00 sec)
