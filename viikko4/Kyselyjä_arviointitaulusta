@@ -1,0 +1,64 @@
+1)
+
+mysql> Select etunimi, sukunimi, arvosana, nimi from arviointi 
+JOIN opintojakso ON arviointi.idOpintojakso = opintojakso.idOpintojakso 
+JOIN opiskelija on arviointi.idOpiskelija = opiskelija.idOpiskelija 
+WHERE arvosana = '0';
++---------+----------+----------+---------------------------+
+| etunimi | sukunimi | arvosana | nimi                      |
++---------+----------+----------+---------------------------+
+| Mikki   | Hiiri    |        0 | Olio-ohjelmointi          |
+| Mikki   | Hiiri    |        0 | Engineering english       |
+| Mikki   | Hiiri    |        0 | Tietokannat ja rajapinnat |
++---------+----------+----------+---------------------------+
+3 rows in set (0.01 sec)
+
+2)
+
+mysql> Select etunimi, sukunimi, arvosana, nimi from arviointi 
+JOIN opintojakso ON arviointi.idOpintojakso = opintojakso.idOpintojakso 
+JOIN opiskelija on arviointi.idOpiskelija = opiskelija.idOpiskelija 
+WHERE nimi LIKE 'Fysiikka'AND arvosana >0;
++---------+----------+----------+----------+
+| etunimi | sukunimi | arvosana | nimi     |
++---------+----------+----------+----------+
+| Mikki   | Hiiri    |        1 | Fysiikka |
++---------+----------+----------+----------+
+1 row in set (0.00 sec)
+
+3)
+
+mysql> Select etunimi, sukunimi, nimi from arviointi 
+JOIN opintojakso ON arviointi.idOpintojakso = opintojakso.idOpintojakso 
+JOIN opiskelija on arviointi.idOpiskelija = opiskelija.idOpiskelija 
+WHERE etunimi LIKE 'Hessu';
++---------+----------+---------------------+
+| etunimi | sukunimi | nimi                |
++---------+----------+---------------------+
+| Hessu   | Hoopo    | Engineering english |
++---------+----------+---------------------+
+1 row in set (0.00 sec)
+
+4)
+
+mysql> select AVG(arvosana) from arviointi JOIN opintojakso ON arviointi.idOpintojakso = opintojakso.idOpintojakso 
+JOIN opiskelija on arviointi.idOpiskelija = opiskelija.idOpiskelija 
+WHERE etunimi LIKE 'Aku';
++---------------+
+| AVG(arvosana) |
++---------------+
+|        3.0000 |
++---------------+
+1 row in set (0.00 sec)
+
+
+5)
+
+mysql> select nimi, arvosana from opintojakso LEFT JOIN Arviointi 
+ON Opintojakso.idOpintojakso=Arviointi.idOpintojakso WHERE arvosana IS NULL;
++--------+----------+
+| nimi   | arvosana |
++--------+----------+
+| Svensk |     NULL |
++--------+----------+
+1 row in set (0.00 sec)
